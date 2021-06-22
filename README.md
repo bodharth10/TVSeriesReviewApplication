@@ -23,3 +23,4 @@ Things you may want to cover:
 
 * .. Foreman start to run the application
 # TvSeriesReviewApp
+# TVSeriesReviewApplication
