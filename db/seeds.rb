@@ -12,22 +12,25 @@ require 'activerecord-import'
 
 
 CSV.foreach(Rails.root.join('lib/tv_series.csv'), headers: true) do |row|
-  
-  TvSeries.create({
-    tv_series: row[0],
-    genre: row[1],
-    no_of_seasons: row[2],
-    date_of_first_release: row[3],
-    director: row[4],
-    actor: row[5],
-    shoot_location: row[6],
-    country: row[7]
-  })
+  check_duplicate = TvSeries.where(tv_series: row[0])
+  unless check_duplicate.present?
+    TvSeries.create({
+      tv_series: row[0],
+      genre: row[1],
+      no_of_seasons: row[2],
+      date_of_first_release: row[3],
+      director: row[4],
+      actor: row[5],
+      shoot_location: row[6],
+      country: row[7]
+    })
+  end 
 end
 
 
-lists_hash = TvSeries.pluck(:tv_series, :id).to_h
 
+
+lists_hash = TvSeries.all.pluck(:tv_series, :id).to_h
 items = []
 CSV.foreach(Rails.root.join('lib/reviews.csv'), headers: true) do |row|
   tv_series_id = lists_hash[row["TV Series"]]

@@ -29,6 +29,7 @@
               <td class="text-left py-3 px-4">{{item.attributes.actor}}</td>
               <td class="text-left py-3 px-4">{{item.attributes.shoot_location}}</td>
               <td class="text-left py-3 px-4">{{item.attributes.country}}</td>
+              <td class="text-left py-3 px-4">{{item.attributes.rating}}</td>
             </tr>
           </tbody>
         </table>
