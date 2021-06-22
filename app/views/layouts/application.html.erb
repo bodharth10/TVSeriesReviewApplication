@@ -1,15 +1,27 @@
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
   <head>
-    <title>TvSeriesReviewApp</title>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0" name="viewport"/>
+    <title>Tv Reviews App</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script crossorigin="anonymous" src="https://kit.fontawesome.com/05ff3eab81.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.min.js"></script>
+    <% if Rails.env.development? %>
+      <meta content="http://localhost:3000/" name="base"/>
+    <% end %>
+    <% # From Webpack %>
+    <%= javascript_pack_tag 'application' %>
+    <%= stylesheet_pack_tag 'application', media: 'all' %>
+    <% # From asset Pipeline %>
+    <%= stylesheet_link_tag 'application', media: 'all' %>
+    <% if content_for?(:page_specific_javascripts) %>
+      <%= yield :page_specific_javascripts %>
+    <% end %>
   </head>
-
-  <body>
+  <body class="bg-background relative">
+    <%= render 'layouts/messages' %>
     <%= yield %>
   </body>
 </html>

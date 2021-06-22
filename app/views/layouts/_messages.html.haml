@@ -1,0 +1,5 @@
+- flash.each do |name, msg|
+  - unless msg.blank?
+    - if msg.is_a?(String)
+      %div{:class => "top-alert font-semibold text-center text-white text-sm py-3 shadow-lg w-full absolute left-0 right-0 z-20 animated slideOutUp delay-3s #{name.to_s == 'notice' ? 'bg-forestgreen' : 'bg-red'}"}
+        = content_tag :div, msg, :id => "flash_#{name}"

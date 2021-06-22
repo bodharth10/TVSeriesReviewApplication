@@ -15,10 +15,11 @@ Things you may want to cover:
 
 * Database initialization
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
 
 * Deployment instructions
 
-* ...
+
+* ...Seed database to populate Tv Series and Reviews data
+
+* .. Foreman start to run the application
+# TvSeriesReviewApp

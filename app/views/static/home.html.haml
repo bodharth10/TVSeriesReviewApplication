@@ -1,0 +1,6 @@
+#vue
+  %homepage{resource: TvSeriesSerializer.new(@tv_series).serialized_json }
+
+- content_for :page_specific_javascripts, flush: true do
+  = javascript_pack_tag('static/home')
+

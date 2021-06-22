@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 2021_06_22_070909) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "reviews", force: :cascade do |t|
     t.string "tv_series"
     t.string "user"
